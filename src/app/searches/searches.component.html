@@ -1,0 +1,51 @@
+<div class="container bg-white pt-3" >
+	<div *ngIf = "showAlertFlag==1" class="alert alert-warning" role="alert">
+		<button type="button" class="close" aria-label="Close" (click)="toggleflag()">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<p>Your browser disallowed Geolocation!</p>
+	</div>
+  <div class="deathlist-container">
+    <div class="form-row">
+    	<div class="col-auto">
+    		<label class="col-form-label">Filter: </label>
+    	</div>
+			<div class="form-group col-lg-3 col-md-4 col-sm-6 col-12">
+				<ng-select [items]="filterList"
+					bindLabel="label"
+					bindValue="id"
+					placeholder="All"
+					[(ngModel)]="curSearch" 
+					class="dfilter"
+					(change)="renderByFilter()">
+				</ng-select>
+			</div>
+		</div>
+    <div class="row dn-wrap">
+      <div *ngIf="loading==1" class="spinner-border border-green" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="col-md-12">
+        <div class="deathList">
+          <div class="card mb-3" *ngFor="let death of deathInfo; index as i">
+            <div class="card-body row">
+              <div class="col-md-auto col-sm-3 col-4">
+                <img class="notice-img" src="assets/image/death/{{(i%15)+1}}.jpg">
+              </div>
+              <div class="col-8 col-sm pt-1">
+                <p>{{death.firstname}}<span *ngIf="death.nee!=''">({{death.nee}})</span>, {{death.lastname}}</p>
+                <p>{{death.town_name}}, {{death.county_name}}</p>
+                <p>Date of death: {{death.d_date | date : "dd-MM-yyyy"}}</p>
+              </div>
+              <div class="col-sm-4 mt-1">
+                <p class="text-right sm-right"><a class="btn btn-secondary btn-sm text-white block-btn" routerLink="/deathnotices/{{death.firstname+'-'+death.lastname+'-'+death.county_name + (death.town_name.trim()!=''?('-'+death.town_name):'')}}/{{death.id}}">View Notice</a></p>
+                <p class="text-right"><a class="btn btn-success btn-sm text-white block-btn" routerLink="/deathnotices/condolence/{{death.id}}">Add condolence</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

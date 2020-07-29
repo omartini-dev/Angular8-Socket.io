@@ -1,0 +1,52 @@
+<div class="container bg-white pt-3" >
+	<div class="deathlist-container">
+		<div class="row search-wrap justify-content-md-center">
+			<app-searchbox (outputToParent)="GetSearchVal($event)" class="w-100"></app-searchbox>
+		</div>
+		<div class="pb-2">
+			<span *ngIf="badge=='week'" class="badge badge-primary">This week</span>
+			<span *ngIf="badge=='month'" class="badge badge-success">This month</span>
+			<span *ngIf="badge=='geo'" class="badge badge-info">Your Geolocation</span>
+		</div>
+		<div class="row dn-wrap">
+			<div class="col-md-8">
+				<div class="input-field hide-on-small-only letter-filter">
+					<span >Surname: </span>
+					<a *ngFor="let letter of searchLetter" (click)="updateLetter(letter);" class="letter_link {{activeLetter==letter?'active':'' }}"><span class="search_letter">{{ letter }}</span></a>
+				</div>
+				<div class="deathList">
+					<div *ngIf="loading==1" class="spinner-border border-green" role="status">
+						<span class="sr-only">Loading...</span>
+					</div>
+					<div class="card mb-3" *ngFor="let death of deathInfo; index as i">
+						<div class="card-body row">
+							<div class="col-md-auto col-sm-3 col-4">
+								<img class="notice-img" src="assets/image/death/{{(i%15)+1}}.jpg">
+							</div>
+							<div class="col-8 col-sm pt-1">
+								<p>{{death.firstname}}<span *ngIf="death.nee!=''">({{death.nee}})</span>, {{death.lastname}}</p>
+								<p>{{death.town_name}}, {{death.county_name}}</p>
+								<p>Date of death: {{death.d_date | date : "dd-MM-yyyy"}}</p>
+							</div>
+							<div class="col-sm-4 mt-1">
+								<p class="text-right sm-right"><a class="btn btn-secondary btn-sm text-white block-btn" routerLink="/deathnotices/{{death.firstname+'-'+death.lastname+'-'+death.county_name + (death.town_name.trim()!=''?('-'+death.town_name):'')}}/{{death.id}}">View Notice</a></p>
+								<p class="text-right"><a class="btn btn-success btn-sm text-white block-btn" routerLink="/deathnotices/condolence/{{death.id}}">Add condolence</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="dn-fix">
+					<div class="content-block">
+						<app-church></app-church>
+					</div>
+					<div class="content-block">
+						<app-cemetery></app-cemetery>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

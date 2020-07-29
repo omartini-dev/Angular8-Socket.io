@@ -1,0 +1,131 @@
+<div class="container bg-white pt-3 pb-3" >
+	<h3>Add a new alert</h3>
+	<div class="accordion" id="alertform">
+		<div class="card">
+			<div class="card-header" id="bytownheader">
+				<h2 class="mb-0">
+					<a class="btn btn-acc" data-toggle="collapse" data-target="#bytown" aria-expanded="true" aria-controls="bytown">By Surname / Town / County </a>
+				</h2>
+			</div>
+
+			<div id="bytown" class="collapse show" aria-labelledby="bytownheader" data-parent="#alertform">
+				<div class="card-body">
+					<div class="form-row">
+						<label class="col-sm-4">Email</label>
+						<div class="form-group col-sm-8">
+							<input type="email" class="form-control" name="email" [(ngModel)]="form1.email">
+						</div>
+					</div>
+					<hr>
+					<div class="form-row">
+						<label class="col-sm-4">Surname</label>
+						<div class="form-group col-sm-8">
+							<input type="text" class="form-control" name="surname" [(ngModel)]="form1.surname">
+						</div>
+					</div>
+					<div class="form-row">
+						<label class="col-sm-4">County</label>
+						<div class="form-group col-sm-8">
+							<ng-select [items]="counties"
+								bindLabel="county_name"
+								bindValue="id"
+								placeholder="County"
+								[(ngModel)]="form1.county" 
+								class="dcounty" 
+								(change)="selectChangeHandler(1)">
+							</ng-select>
+						</div>
+					</div>
+					<div class="form-row">
+						<label class="col-sm-4">Town</label>
+						<div class="form-group col-sm-8">
+							<ng-select [items]="currentTown"
+								bindLabel="town_name"
+								bindValue="id"
+								placeholder="City/Town"
+								[(ngModel)]="form1.town" 
+								class="dcounty" >
+							</ng-select>
+						</div>
+					</div>
+					<hr>
+					<div class="text-right">
+						<button class="btn btn-primary" (click)="createAlert(form1)">Create alert</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-header" id="bychurchheader">
+				<h2 class="mb-0">
+					<a class="btn collapsed btn-acc" data-toggle="collapse" data-target="#bychurch" aria-expanded="false" aria-controls="bychurch">By Church</a>
+				</h2>
+			</div>
+			<div id="bychurch" class="collapse" aria-labelledby="bychurchheader" data-parent="#alertform">
+				<div class="card-body">
+					<div class="form-row">
+						<label class="col-sm-4">Email</label>
+						<div class="form-group col-sm-8">
+							<input type="email" class="form-control" name="email" [(ngModel)]="form2.email">
+						</div>
+					</div>
+					<hr>
+					<div class="form-row">
+						<label class="col-sm-4">County</label>
+						<div class="form-group col-sm-8">
+							<ng-select [items]="counties"
+								bindLabel="county_name"
+								bindValue="id"
+								placeholder="Select County"
+								[(ngModel)]="form2.county" 
+								class="dcounty" 
+								(change)="selectChangeHandler(2)">
+							</ng-select>
+						</div>
+					</div>
+					<div class="form-row">
+						<label class="col-sm-4">Town</label>
+						<div class="form-group col-sm-8">
+							<ng-select [items]="currentTown2"
+								bindLabel="town_name"
+								bindValue="id"
+								placeholder="City/Town"
+								[(ngModel)]="form2.town" 
+								class="dtown"
+								(change)="townChangeHandler()">
+							</ng-select>
+						</div>
+					</div>
+					<div class="form-row">
+						<label class="col-sm-4">Church</label>
+						<div class="form-group col-sm-8">
+							<ng-select [items]="curchurches"
+								bindLabel="desc"
+								bindValue="id"
+								placeholder="Select Church"
+								[(ngModel)]="form2.church" 
+								class="dcounty" >
+							</ng-select>
+						</div>
+					</div>
+					<hr>
+					<div class="text-right">
+						<button class="btn btn-primary" (click)="createAlert(form2)">Create alert</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="false" data-delay="4000">
+  <div class="toast-header">
+    <strong class="mr-auto">Atrest</strong>
+    <small>{{ today |  date : "yyyy-MM-dd"}}</small>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="toast-body">
+    It will be submited soon.
+  </div>
+</div>

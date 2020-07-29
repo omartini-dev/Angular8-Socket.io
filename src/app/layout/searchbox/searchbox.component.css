@@ -1,0 +1,38 @@
+a:hover{text-decoration: none;}
+.searchbox #expend-btn{opacity: 1;}
+.searchbox.bg-trans {
+	background:transparent;
+}
+.searchbox .form-control, .searchbox .btn, .searchbox{
+	-webkit-transition: all 1s; /* Safari prior 6.1 */
+	transition: all 1s;
+}
+.bg-trans input, .bg-trans select, .bg-trans .btn{
+	background-color: rgba(0,0,0,0.6); 
+	color: #fff;
+	border-color:#444;
+}
+.bg-trans ::placeholder { 
+  color: white;
+  opacity: 1;
+}
+.searchbox.bg-trans #expend-btn{opacity: 0;}
+.btn{cursor: pointer;}
+.dcounty.ng-select.ng-select-single ::ng-deep .ng-select-container{
+	height: 38px!important;
+}
+.dcounty.ng-select.ng-select-single ::ng-deep .ng-select-container{
+	-webkit-transition: all 1s; /* Safari prior 6.1 */
+	transition: all 1s;
+}
+.bg-trans .dcounty.ng-select.ng-select-single ::ng-deep .ng-select-container{
+	background:rgba(0,0,0,0.6);
+	border-color:#444;
+}
+.bg-trans ::ng-deep .ng-select-container .ng-placeholder,
+.bg-trans ::ng-deep .ng-select-container .ng-value{
+	color: white;
+}
+.input-group-append span{
+	border:1px solid #ddd;
+}

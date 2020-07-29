@@ -1,0 +1,91 @@
+body{background: #eee!important;}
+.btn-pointer{cursor: pointer;}
+.content-block{
+	width: 100%;
+	
+	box-shadow: 0 2px 3px 1px #ccc;
+	margin-bottom: 20px;
+	background: #ddd;
+	position: relative;
+}
+.side-block{
+	min-height: 300px;
+}
+.spinner-border{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -12px;
+}
+.border-green{
+	color: #36bc9c!important;
+}
+.block-title{
+	text-align: center;
+	padding: 8px 16px;
+	background:#36bc9c;
+	color: #fff;
+	font-weight: bold;
+	font-size: 18px;
+}
+.block-sub-title{
+	text-align: center;
+	padding: 8px 16px;
+	font-weight: bold;
+	color: #666;
+}
+.block-sub-title h3{font-size: 18px;color:#36bc9c;font-weight: bold;}
+.block-img img{width: 100%;}
+.list-item{margin-bottom: 5px;background: #fff;}
+.line-head{font-size: 30px;color: #aaa;}
+.fa-search{color: #170;}
+::ng-deep .fa-church{font-size: 24px;}
+.line-content{font-size: 14px;}
+.block-logo{color: #170;font-size: 20px;}
+a:hover{text-decoration: none;}
+.smooth {
+  -webkit-animation-name: smooth; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+  animation-name: smooth;
+  animation-duration: 2s;
+  overflow: hidden;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes smooth {
+  from {height: 0;padding-top: 0;padding-bottom: 0;}
+  to {height: 60px;padding-top: 0.5rem;padding-bottom: 0.5rem;}
+}
+
+/* Standard syntax */
+@keyframes smooth {
+  from {height: 0;padding-top: 0;padding-bottom: 0;}
+  to {height: 60px;padding-top: 0.5rem;padding-bottom: 0.5rem;}
+}
+.recent-block{max-height: 430px;overflow: hidden;}
+.filter-btn{cursor: pointer;}
+.btn-primary {
+	color: #fff;
+	background-color: #36bc9c;
+	border-color: #36bc9c;
+}
+.btn-primary:active {
+	color: #fff;
+	background-color: #15a080;
+	border-color: #15a080;
+}
+.btn-primary:not(:disabled):not(.disabled):active{
+	background-color: #15a080;
+	border-color: #15a080;
+}
+.btn-primary:hover {
+	color: #fff;
+	background-color: #28ad8d;
+	border-color: #28ad8d;
+}
+@media (min-width: 1500px) {
+	.container{max-width: 1400px;}
+}
+@media (min-width: 1920px) {
+	.container{max-width: 1800px;}
+}

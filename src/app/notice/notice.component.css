@@ -1,0 +1,5 @@
+.notice-form{max-width: 700px;margin: 0 auto;}
+h5{border-bottom:1px solid #ddd;}
+.input-group-append span{
+	border:1px solid #ddd;
+}

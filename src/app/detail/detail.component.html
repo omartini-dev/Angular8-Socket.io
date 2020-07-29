@@ -1,0 +1,82 @@
+<!-- <p *ngFor="let death of deathdetail">{{death.firstname}}</p> -->
+
+<div class="container bg-white pb-5">
+  <div class="row">
+	<div class="img-view w-100">
+			<img class="w-100 bg-img" src="assets/image/avatar.jpeg">
+	</div>
+	<div class="name-panel bg-name text-center w-100">
+		<h1>{{deathdetail.firstname}} {{deathdetail.lastname}}</h1>
+		<p class="d-strike"><span class="star-line"><i class="fab fa-pagelines"></i></span></p>
+		<p class="d-address"><span>{{deathdetail.town_name}}</span>,<span>{{deathdetail.county_name}}</span></p>
+	</div>
+    <div [innerHTML]="deathdetail.notice" class="d-notice pt-5 w-100">
+    </div>
+    <p class="under-date text-right px-5 w-100">
+      <a class="condolence float-left" routerLink="/deathnotices/condolence/{{deathdetail.id}}">Add condolence</a>
+      <span>Date of death</span>: {{deathdetail.d_date}}</p>
+  		<div class="text-right no-print col-12"><a class="btn btn-pointer" onclick="window.print()"><span class="fa fa-print">&nbsp;</span><span>Print</span></a> | <a class="btn btn-pointer" data-toggle="modal" data-target="#exampleModal"><span class="fa fa-share-alt">&nbsp;</span><span>Share</span></a></div>
+
+    <div class="bg-name text-center pt-lg-5 pb-lg-5 death-map w-100">
+    	<p class="d-strike"><span class="star-line"><i class="fab fa-pagelines"></i></span></p>
+    	<div class="row">
+    		<div *ngIf="deathdetail.church_desc!='' && deathdetail.church_desc!=null" class="col-sm">
+    			<p>{{deathdetail.church_desc}}</p>
+    			<agm-map [latitude]="deathdetail.church_lat" [longitude]="deathdetail.church_lon" [zoom]="16">
+    				<agm-marker [latitude]="deathdetail.church_lat" [longitude]="deathdetail.church_lon"></agm-marker>
+    			</agm-map>
+    		</div>
+        <div *ngIf="deathdetail.cemetery_desc!='' && deathdetail.cemetery_desc!=null" class="col-sm">
+          <p>{{deathdetail.cemetery_desc}}</p>
+          <agm-map [latitude]="deathdetail.cemetery_lat" [longitude]="deathdetail.cemetery_lon" [zoom]="16">
+            <agm-marker [latitude]="deathdetail.cemetery_lat" [longitude]="deathdetail.cemetery_lon"></agm-marker>
+          </agm-map>
+        </div>
+    	</div>
+    </div>
+</div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg contact-form" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Email A Friend</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+								<input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" [(ngModel)]="emailForm.username" />
+						</div>
+						<div class="form-group">
+								<input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" [(ngModel)]="emailForm.email" />
+						</div>
+						<div class="form-group">
+								<input type="text" name="txtPhone" class="form-control" placeholder="Recipient Email *" value="" [(ngModel)]="emailForm.recipient" />
+						</div>
+					</div>
+					<div class="col-md-6">
+							<div class="form-group">
+									<textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;" [(ngModel)]="emailForm.message"></textarea>
+							</div>
+					</div>
+				</div>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-info btn-social" target="_blank" href="https://www.facebook.com/Atrest.ieDeathNotices">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a class="btn btn-info btn-social" target="_blank" href="https://twitter.com/AtrestIe">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a class="btn btn-info btn-social" href="whatsapp://send?text=Death notice" data-action="share/whatsapp/share"><i class="fab fa-whatsapp"></i></a>
+				<button type="button" data-dismiss="modal" class="btn btn-info" (click)="sendMessage()"><i class="fa fa-envelope"></i></button>
+        <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-undo"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,19 @@
+.card-header button:hover, .card-header button:active, .card-header button:focus, .card-header button:visited{
+	text-decoration: none;
+}
+.toast{
+	position: fixed;
+	top: 50%;
+    left: 50%;
+    margin-left: -90px;
+    margin-top: -80px;
+}
+.container{min-height: 500px;}
+.accordion .card-header{padding:4px;background: #666;color: #fff;border-bottom: none;}
+.btn-acc{color: #fff;cursor: pointer;}
+.btn-acc:hover{color: #ddd;}
+.accordion .card{border-color:#aaa;}
+.toast-header{
+	background: #36bc9c!important;
+	color: white!important;
+}

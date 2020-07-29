@@ -1,0 +1,10 @@
+.filterbox{padding:20px;min-height: 400px;}
+@media (min-width: 768px) {
+	.filterbox{min-width: 600px;}
+}
+@media (max-width: 575.98px) {
+	::ng-deep .ng-dropdown-panel .scroll-host{max-height:120px!important;}
+}
+.input-group-append span{
+	border:1px solid #ddd;
+}

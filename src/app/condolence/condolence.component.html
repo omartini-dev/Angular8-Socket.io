@@ -1,0 +1,36 @@
+<div class="container bg-white pb-5 pt-1" >
+	<div class="card">
+		<div class="card-header ">
+			Add Condolence
+		</div>
+		<div class="card-body">
+			<p class="card-title">Please note, this message will be proofread by us prior to being published on the site and, once published</p>
+			<form>
+				<div class="form-group row">
+					<label for="username" class="col-sm-2 col-form-label">Your Name</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="username" [(ngModel)]="condol.username" name="username">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="message" class="col-sm-2 col-form-label">Message</label>
+					<div class="col-sm-10">
+						<textarea type="password" class="form-control" id="message" rows="4" name="message" [(ngModel)]="condol.message"></textarea>
+					</div>
+				</div>
+			</form>
+			<div class="text-right">
+				<a class="btn btn-info" (click)="sendMsg()">Send</a>
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="card-body">
+			<blockquote class="blockquote mb-0" *ngFor="let condolence of condolData">
+			  <p>{{ condolence.content }}</p>
+			  <footer class="blockquote-footer text-right"><cite title="Source Title">{{condolence.username}}</cite></footer>
+			  <hr>
+			</blockquote>
+		</div>
+	</div>
+</div>

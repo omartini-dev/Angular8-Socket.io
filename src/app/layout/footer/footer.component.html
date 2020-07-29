@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row top-footer">
+		<div class="w-100 text-center">All notices can be shared with family and friends via social media such as Facebook and Whatsapp.</div>
+	</div>
+	<div class="row align-items-center bottom">
+		<div class="col-sm-3">
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<a class="navbar-brand" routerLink="/home">
+					<img src="assets/image/Atrest_sm.png">
+				</a>
+			</nav>
+		</div>
+		<div class="col-sm-4 footer-menu d-lg-block d-none">
+			<a class="menu-item active" routerLink="/home" [routerLinkActive]="['active']" (click)="scrolltop()">Home</a>
+			<a class="menu-item" routerLink="/deathnotices" [routerLinkActive]="['active']" (click)="scrolltop()">Death Notices</a>
+			<a class="menu-item" routerLink="/email-alert" [routerLinkActive]="['active']" (click)="scrolltop()">Searches</a>
+			<a class="menu-item" routerLink="/contact-us" [routerLinkActive]="['active']" (click)="scrolltop()">Contact Us</a>
+		</div>
+		<div class="col-lg-3 col-sm-7 offset-sm-2 pr-0">
+			<a routerLink="/deathnotices/notice" class="text-white bottom-btn go-top" (click)="scrolltop()"><span class="text-btn">Publish a Notice</span></a>
+		</div>
+	</div>
+</div>
+
+<footer>
+	<div class="container text-center">
+		© Copyright All Rights Reserved.
+	</div>
+</footer>

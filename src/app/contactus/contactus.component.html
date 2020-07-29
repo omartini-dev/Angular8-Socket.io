@@ -1,0 +1,47 @@
+<div class="container contact bg-white pt-3">
+	<div class="row">
+		<div class="col-md-9 contact-body">
+			<div class="contact-form">
+				<div class="form-group">
+				  <label class="control-label" for="fname">First Name:</label>
+				  <div class="">          
+					<input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="fname" [(ngModel)]="emailForm.firstname">
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label class="control-label" for="lname">Surname:</label>
+				  <div class="">          
+					<input type="text" class="form-control" id="lname" placeholder="Enter Surname" name="lname" [(ngModel)]="emailForm.lastname">
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label class="control-label" for="email">Email:</label>
+				  <div class="">
+					<input type="email" class="form-control" id="email" placeholder="Enter email" name="email" [(ngModel)]="emailForm.email">
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label class="control-label" for="email">Subject:</label>
+				  <div class="">
+					<input type="text" class="form-control" id="subject" placeholder="Enter subject" name="subject" [(ngModel)]="emailForm.subject">
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label class="control-label" for="comment">Comment:</label>
+				  <div class="">
+					<textarea class="form-control" rows="5" id="comment" [(ngModel)]="emailForm.message"></textarea>
+				  </div>
+				</div>
+				<div class="row justify-content-between">     
+				  <div class="col-auto">
+					<button type="submit" class="btn btn-default" (click)="sendMessage()"><span class="fa fa-paper-plane">&nbsp;</span> Submit</button>
+				  </div>
+				  <div class="col-auto">
+					<a routerLink="/deathnotices/notice" class="btn btn-success"><span class="fa fa-edit">&nbsp;</span>Add Notice</a>
+				  </div>
+				</div>
+				<hr>
+			</div>
+		</div>
+	</div>
+</div>

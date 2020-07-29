@@ -1,0 +1,124 @@
+
+<div class="container bg-white pt-3" >
+	<div class="row img-banner justify-content-md-center">
+		<div class="searchbox-wrap col-12 p-3">
+			<app-searchbox (outputToParent)="GetSearchVal($event)"></app-searchbox>
+		</div>
+	</div>
+	<div *ngIf = "showAlertFlag==1" class="alert alert-warning" role="alert">
+		<button type="button" class="close" aria-label="Close" (click)="toggleflag()">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<p>Your browser disallowed Geolocation!</p>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="content-block recent-block">
+				<div class="block-title"> Today's Notices <span class="fa fa-cog float-right mt-1 filter-btn" (click) = "openfilter()"></span></div>
+				<div *ngIf="loading==1" class="spinner-border border-green" role="status">
+					<span class="sr-only">Loading...</span>
+				</div>
+				<div *ngFor="let deathItem of recentdeath">
+					<div class="list-item {{deathItem.new_flag==0?'smooth':''}} container pt-2 pb-2">
+						<a routerLink="/deathnotices/{{deathItem.firstname+'-'+deathItem.lastname+'-'+deathItem.county_name + (deathItem.town_name.trim()!=''?('-'+deathItem.town_name):'')}}/{{deathItem.id}}">
+							<div class="row align-items-center">
+								<div class="col-auto line-head pr-1">
+									<i class="fab fa-pagelines "></i>
+								</div>
+								<div class="col">
+									<div class="line-content">
+										<span class="recent_activity_surname">{{ deathItem.firstname }} {{ deathItem.lastname }} </span><br>
+										<span class="gray_text">{{ deathItem.town_name }} {{ deathItem.county_name }}</span></div>
+								</div>
+								<div class="col-1 p-1">
+									<i class="fa fa-search"></i>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="content-block">
+				<div class="block-title"> Set up custom email alerts<br> to notify you with an email of<br>  new death notices </div>
+				<div class="block-img">
+					<img src="assets/image/3.jpg">
+				</div>
+				<div class="block-desc">
+					<p>Setting up a custom alert is quick and easy. Just follow these simple steps to start receiving alerts directly to your email.</p>
+					<p>Firstly you will need to. Follow this link to register for free.</p>
+					<h4>Step 1</h4>
+					<p>
+						Select 'Set Alerts'.
+					</p>
+					<h4>Step 2</h4>
+					<p>
+						You can now enter any search criteria you wish to use (Surname / County / town / Church / Cemetery) Select 'Confirm'.
+					</p>
+					<h4>Step 3</h4>
+					<p>
+						Your new alert will now appear within 'Your Chosen Email'.
+					</p>
+					<h4>Future Emails</h4>
+					<p>
+						Once your email alert is set up, you will receive a custom alert email with a link to any matching notices published if the criteria you have selected matches any new notices.
+					</p>
+					<h4>Deleting your alerts</h4>
+					<p>
+						There will be a link in every email alert sent to stop specific email alerts if required. Select 'Stop Alert'
+					</p>
+					<p><a routerLink="/email-alert">Register Now</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="content-block pointer">
+			<a (click)="goGeoLoc()">
+				<div class="block-title p-3">Search Notices By Your<br> Geolocation... </div>
+			</a>
+			</div>
+			<div class="content-block pointer">
+			<a (click)="goWeek()">
+				<div class="block-img">
+					<img src="assets/image/death/1.jpg">
+				</div>
+				<div class="block-title">Read This Week's Notices</div>
+			</a>
+			</div>
+			<div class="content-block pointer">
+			<a (click)="goMonth()">
+				<div class="block-img">
+					<img src="assets/image/death/4.jpg">
+				</div>
+				<div class="block-title">Read This Month's Notices</div>
+			</a>
+			</div>
+			<div class="content-block bg-white">
+				<a routerLink="/deathnotices" (click)="scrolltop()">
+					<div class="block-sub-title">
+						<p class="block-logo"><i class="fab fa-gripfire"></i></p>
+						<h3>Would you like to create a</h3>
+						condolence for a friend or family member?
+					</div>
+				</a>
+			</div>
+			<div class="content-block bg-white">
+				<div class="block-sub-title">
+					<h3>Create and publish a notice</h3>
+					for a loved one...
+					<div class="pt-2">
+						<a routerLink="/deathnotices/notice" class="btn btn-success btn-sm" (click)="scrolltop()">Add Notice</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="content-block side-block">
+				<app-church></app-church>
+			</div>
+			<div class="content-block side-block">
+				<app-cemetery></app-cemetery>
+			</div>
+		</div>
+	</div>
+</div>
+

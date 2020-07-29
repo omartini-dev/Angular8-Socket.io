@@ -1,0 +1,125 @@
+<div class="container bg-white pt-5 pb-5">
+	<div class="notice-form">
+
+	<div *ngIf = "alertflag==1" class="alert alert-success" role="alert">
+		<button type="button" class="close" aria-label="Close" (click)="toggleflag()">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<h4 class="alert-heading">Success!</h4>
+		<p>Your notice is successfully added.</p>
+		<hr>
+		<p class="mb-0">This notice will be published in a work day.</p>
+	</div>
+	<h5 class="mt-3">Your Detail</h5>
+	<div class="form-row">
+		<div class="form-group col-sm-6">
+			<input type="text" class="form-control {{errorshow && formdata.username=='' ? 'is-invalid':''}}" name="username" [(ngModel)]="formdata.username" placeholder="Name">
+		</div>
+		<div class="form-group col-sm-6">
+			<input type="email" class="form-control {{errorshow && formdata.email=='' ? 'is-invalid':''}}" name="email" [(ngModel)]="formdata.email" placeholder="Email">
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-sm-6">
+			<input type="text" class="form-control {{errorshow && formdata.address=='' ? 'is-invalid':''}}" name="address" [(ngModel)]="formdata.address" placeholder="Address">
+		</div>
+		<div class="form-group col-sm-6">
+			<input type="text" class="form-control {{errorshow && formdata.phone=='' ? 'is-invalid':''}}" name="phone" [(ngModel)]="formdata.phone" placeholder="Phone number">
+		</div>
+	</div>
+
+	<h5 class="mt-3">Notice Detail</h5>
+	<div class="form-row">
+		<div class="form-group col-sm-4">
+			<input type="text" class="form-control {{errorshow && formdata.notice_fname=='' ? 'is-invalid':''}}" name="firstname" [(ngModel)]="formdata.notice_fname" placeholder="First Name">
+		</div>
+		<div class="form-group col-sm-4">
+			<input type="text" class="form-control {{errorshow && formdata.notice_lname=='' ? 'is-invalid':''}}" name="lastname" [(ngModel)]="formdata.notice_lname" placeholder="Surname">
+		</div>
+		<div class="form-group col-sm-4">
+			<input type="text" class="form-control {{errorshow && formdata.notice_nee=='' ? 'is-invalid':''}}" name="nee" [(ngModel)]="formdata.notice_nee" placeholder="Nee">
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-sm-6">
+			<input type="text" class="form-control {{errorshow && formdata.notice_address=='' ? 'is-invalid':''}}" name="notice_address" [(ngModel)]="formdata.notice_address" placeholder="Address">
+		</div>
+		<div class="form-group col-sm-6">
+			<div class="input-group">
+			<input type="text" class="form-control {{errorshow && formdata.notice_d_date=='' ? 'is-invalid':''}}" name="d_date" ngbDatepicker #dto="ngbDatepicker" (dateSelect)="selectDateHandler($event)" placeholder="Date of death">
+			<div class="input-group-append">
+				<span class="btn btn-light" (click)="dto.toggle()"><i class="far fa-calendar"></i></span>
+			</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-sm-6">
+			<ng-select [items]="counties"
+				bindLabel="county_name"
+				bindValue="id"
+				placeholder="County"
+				[(ngModel)]="formdata.notice_county" 
+				class="dcounty" (change)="selectChangeHandler()">
+			</ng-select>
+		</div>
+		<div class="form-group col-sm-6">
+			<ng-select [items]="currentTown"
+				bindLabel="town_name"
+				bindValue="id"
+				placeholder="City/Town"
+				[(ngModel)]="formdata.notice_town" 
+				class="dcounty" (change)="townChangeHandler()">
+			</ng-select>
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-sm-6">
+			<ng-select [items]="curchurches"
+				bindLabel="desc"
+				bindValue="id"
+				placeholder="Church"
+				[(ngModel)]="formdata.notice_church" 
+				class="dcounty" >
+			</ng-select>
+		</div>
+		<div class="form-group col-sm-6">
+			<ng-select [items]="curcemeteries"
+				bindLabel="desc"
+				bindValue="id"
+				placeholder="Cemetery"
+				[(ngModel)]="formdata.notice_cemetery" 
+				class="dcounty" >
+			</ng-select>
+		</div>
+	</div>
+	<div class="pl-1">
+		<label>Notice:</label>
+		<div class="form-group">
+			<!-- <editor apiKey="test" [(ngModel)]="formdata.notice_desc" ></editor> -->
+			<textarea class="form-control" [(ngModel)]="formdata.notice_desc"></textarea>
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-sm-12">
+			<input type="text" class="form-control"  placeholder="Phrase" [(ngModel)]="formdata.notice_phrase1" >
+		</div>
+	</div>
+	<div class="pl-1">
+		<label>Arrangements:</label>
+		<div class="form-group">
+			<!-- <editor apiKey="test" [(ngModel)]="formdata.notice_desc" ></editor> -->
+			<textarea class="form-control" [(ngModel)]="formdata.notice_arrangement" ></textarea>
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-sm-12">
+			<input type="text" class="form-control"  placeholder="Phrase" [(ngModel)]="formdata.notice_phrase2" >
+		</div>
+	</div>
+	<hr>
+	<div class="text-right">
+		<button class="btn btn-success" (click)="addNotice()">Add a notice</button>
+	</div>
+	</div>
+</div>

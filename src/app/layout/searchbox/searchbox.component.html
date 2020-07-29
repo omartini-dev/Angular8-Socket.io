@@ -1,0 +1,47 @@
+<div class="searchbox" >
+	<div class="form-row">
+		<div class="form-group col-sm">
+			<input type="text" class="form-control" name="firstname" [(ngModel)]="searchData.firstname" placeholder="First name">
+		</div>
+		<div class="form-group col-sm">
+			<input type="text" class="form-control" name="firstname" [(ngModel)]="searchData.lastname" placeholder="Surname">
+		</div>
+		<div class="form-group col-sm">
+			<ng-select [items]="counties"
+				bindLabel="county_name"
+				bindValue="id"
+				placeholder="County"
+				[(ngModel)]="searchData.county" 
+				class="dcounty" (change)="selectChangeHandler()">
+			</ng-select>
+		</div>
+		<div class="form-group col-sm">
+			<ng-select [items]="currentTown"
+				bindLabel="town_name"
+				bindValue="id"
+				placeholder="City/Town"
+				[(ngModel)]="searchData.town" 
+				class="dcounty" >
+			</ng-select>
+		</div>
+		<div class="form-group col-sm">
+			<div class="input-group">
+			<input class="form-control" name="from" type="text" ngbDatepicker #dfrom="ngbDatepicker" (change)="selectFromDateHandler($event)" (dateSelect)="selectFromDateHandler($event)" value='' placeholder="From" />
+				<div class="input-group-append">
+					<span class="btn btn-light" (click)="dfrom.toggle()"><i class="far fa-calendar"></i></span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group col-sm">
+			<div class="input-group">
+			<input class="form-control" name="to" type="text" ngbDatepicker #dto="ngbDatepicker" (change)="selectToDateHandler($event)" (dateSelect)="selectToDateHandler($event)" value='' placeholder="To" />
+				<div class="input-group-append">
+					<span class="btn btn-light" (click)="dto.toggle()"><i class="far fa-calendar"></i></span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group col-sm text-right align-self-end">
+			<a class="btn btn-success w-100 text-white" (click)="NotificationToParent(searchData)"><i class="fa fa-search">&nbsp;</i>Search</a>
+		</div>
+	</div>
+</div>

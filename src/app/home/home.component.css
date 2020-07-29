@@ -1,0 +1,24 @@
+.table td, .table th {
+    padding: .5rem;
+    font-size: 14px;
+}
+.img-banner{position: relative;}
+.death-banner{
+	background: #1abc9c;
+	padding: 12px;
+	font-size: 1.5rem;
+	color: #fff;
+	font-style: italic;
+	font-weight: bold;
+}
+.icon-img{width: 24px;float: left;margin-right: 4px;}
+.card-body{padding:2px;}
+.card-title{font-size: 14px;line-height: 1.8;}
+.card-text{font-size: 14px;margin-bottom: 8px;}
+.footer-btn{padding:30px;background: #1abc9c;}
+.footer-btn:first-child{border-right: solid 1px #fff;}
+.card{min-height: 245px;}
+.pointer{cursor: pointer;}
+.block-desc{color: #333;padding:10px;background: #fff;font-size: 14px;max-height: 200px;overflow-y: scroll;}
+.block-desc h4{font-size: 14px; font-weight: bold;}
+.recent-block{min-height: 300px;}

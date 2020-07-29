@@ -1,0 +1,26 @@
+<div class="block-title"> Search Notices By Church <span class="fa fa-cog float-right mt-1 filter-btn" (click) = "openfilter()"></span></div>
+<div *ngIf="loading==1" class="spinner-border border-green" role="status">
+	<span class="sr-only">Loading...</span>
+</div>
+<div *ngFor="let church of chudeath">
+	<div class="list-item container pt-2 pb-2">
+		<a routerLink="/deathnotices/{{church.firstname+'-'+church.lastname+'-'+church.county_name + (church.town_name.trim()!=''?('-'+church.town_name):'')}}/{{church.id}}">
+		<div class="row align-items-center">
+			<div class="col-auto line-head pr-1">
+				<fa name="church"></fa>
+
+			</div>
+			<div class="col">
+				<div class="line-content">
+					<p class="uname mb-0">{{ church.firstname }} {{church.lastname}}</p> 
+					<p class="gray_text mb-0">{{church.desc}}</p>
+					<p class="gray_text mb-0">{{ church.town_name }} {{ church.county_name }}</p>
+				</div>
+			</div>
+			<div class="col-1 p-1">
+				<i class="fa fa-search"></i>
+			</div>
+		</div>
+		</a>
+	</div>
+</div>

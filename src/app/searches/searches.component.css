@@ -1,0 +1,40 @@
+a:hover{text-decoration: none;}
+
+.card{
+
+}
+.card-body{padding: 8px;}
+.card-body p{margin-bottom: 2px; }
+.card-body a{color: #333;}
+.notice-img {
+	max-width: 122px;
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	background: #eee;
+}
+.search-wrap{padding: 20px;}
+a.letter_link{padding:4px 6px;cursor: pointer; color:#aaa;}
+a.letter_link.active {color:#333;}
+.block-btn{min-width: 120px;}
+.letter-filter {
+	padding: 4px;
+	background: #eee;
+	margin-bottom: 10px;
+	word-break: break-all;
+}
+.dn-wrap{position: relative;}
+.dn-fix{
+	position: relative;
+	transition: all 1s ease;
+	-webkit-transition:all 1s ease;
+}
+@media (max-width: 575.98px) {
+	.sm-right{
+		float: right!important;
+		margin-left: 10px;
+	}
+	.notice-img{width: 100%;}
+}
+.deathList{
+	min-height: 600px;
+}

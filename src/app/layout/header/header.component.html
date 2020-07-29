@@ -1,0 +1,53 @@
+<div class="d-header clearfix">
+	<div class="container">
+		<a href="" class="float-right"><i class="far fa-times-circle">&nbsp;</i>Hide</a>
+	</div>
+</div>
+<header class="container">
+	<div class="row align-items-end">
+		<nav class="navbar navbar-expand-lg navbar-dark">
+			<a class="navbar-brand" routerLink="/home">
+				<img src="assets/image/Atrest.png">
+			</a>
+		</nav>
+		<div class="col text-right">
+			<a routerLink="/deathnotices/notice" class="btn btn-sm btn-info mb-1">Place a notice</a>
+		</div>
+	</div>
+	<nav class="navbar navbar-expand-lg navbar-dark menu-bar row">
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="menu">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item" [routerLinkActive]="['active']">
+					<a class="menu-item" routerLink="/home" [routerLinkActive]="['active']"><span>Home</span></a>
+				</li>
+				<li class="nav-item" [routerLinkActive]="['active']">
+					<a class="menu-item" routerLink="/deathnotices" [routerLinkActive]="['active']"><span>Death Notices</span></a>
+				</li>
+				<li class="nav-item" [routerLinkActive]="['active']">
+					<a class="menu-item" routerLink="/searches" [routerLinkActive]="['active']"><span>Search</span></a>
+				</li>
+				<li class="nav-item" [routerLinkActive]="['active']">
+					<a class="menu-item" routerLink="/contact-us" [routerLinkActive]="['active']"><span>Contact Us</span></a>
+				</li>
+			</ul>
+
+			<div class="social-wrap my-2 my-lg-0 text-right p-1">
+				<a class="text-white pointer btn-sm mr-1">
+					Get connected
+				</a>
+
+				<a class="pr-2 mr-2 pointer geo-btn{{geoFlag==1?' visible':''}}" (click)="disableGeo()"><span class="fa fa-map-marker-alt text-white"></span></a>
+				<a class="btn btn-light btn-social" target="_blank" href="https://www.facebook.com/Atrest.ieDeathNotices">
+					<i class="fab fa-facebook"></i>
+				</a>
+				<a class="btn btn-light btn-social" target="_blank" href="https://twitter.com/AtrestIe">
+					<i class="fab fa-twitter"></i>
+				</a>
+			</div>
+		</div>
+	</nav>
+		
+</header>

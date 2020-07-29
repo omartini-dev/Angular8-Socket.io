@@ -1,0 +1,33 @@
+.contact{
+	padding: 4%;
+}
+.contact-side{
+	background: #36bc9c;
+	padding: 4%;
+	border-top-left-radius: 0.5rem;
+	border-bottom-left-radius: 0.5rem;
+}
+.contact-body{
+	padding: 3%;
+}
+.contact-info{
+	margin-top:10%;
+	color:#fff;
+}
+.contact-info img{
+	margin-bottom: 15%;
+}
+.contact-info h2{
+	margin-bottom: 10%;
+}
+.contact-form label{
+	font-weight:600;
+}
+.contact-form .btn-default{
+	background: #25274d;
+	color: #fff;
+	font-weight: 600;
+}
+.contact-form button:focus{
+	box-shadow:none;
+}

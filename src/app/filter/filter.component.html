@@ -1,0 +1,75 @@
+<div class="filterbox" >
+	<div *ngIf="target=='today'" class="block-title mb-5"> Today's Notices <span class="fa fa-cog float-right mt-1 filter-btn"></span></div>
+	<div *ngIf="target=='church'" class="block-title mb-5"> Search Notices By Church <span class="fa fa-cog float-right mt-1 filter-btn"></span></div>
+	<div *ngIf="target=='cemetery'" class="block-title mb-5"> Search Notices By Cemetery <span class="fa fa-cog float-right mt-1 filter-btn"></span></div>
+	<div class="form-row">
+		<div class="form-group col-sm-6">
+			<ng-select [items]="counties"
+				bindLabel="county_name"
+				bindValue="id"
+				placeholder="County"
+				[(ngModel)]="searchData.county" 
+				class="dcounty" (change)="selectChangeHandler()">
+			</ng-select>
+		</div>
+		<div class="form-group col-sm-6">
+			<ng-select [items]="currentTown"
+				bindLabel="town_name"
+				bindValue="id"
+				placeholder="City/Town"
+				[(ngModel)]="searchData.town" 
+				class="dcounty" (change)="townChangeHandler()">
+			</ng-select>
+		</div>
+	</div>
+	<hr>
+	<div class="form-row">
+		<div *ngIf = "target=='church'" class="form-group col-sm-12">
+			<ng-select [items]="curchurches"
+				bindLabel="desc"
+				bindValue="id"
+				placeholder="Church"
+				[(ngModel)]="searchData.church" 
+				class="dcounty" >
+			</ng-select>
+		</div>
+		<div *ngIf = "target=='cemetery'" class="form-group col-sm-12">
+			<ng-select [items]="curcemeteries"
+				bindLabel="desc"
+				bindValue="id"
+				placeholder="Cemetery"
+				[(ngModel)]="searchData.cemetery" 
+				class="dcounty" >
+			</ng-select>
+		</div>
+	</div>
+	<div *ngIf = "target=='today'" class="form-row">
+		<div class="form-group col-sm-6">
+			<input type="text" class="form-control" name="firstname" [(ngModel)]="searchData.firstname" placeholder="First Name">
+		</div>
+		<div class="form-group col-sm-6">
+			<input type="text" class="form-control" name="lastname" [(ngModel)]="searchData.lastname" placeholder="Surname">
+		</div>
+	</div>
+	<div *ngIf="target!='today'" class="form-row">
+		<div class="form-group col-sm-6">
+			<div class="input-group">
+			<input class="form-control" name="from" type="text" ngbDatepicker #dfrom="ngbDatepicker" (change)="selectFromDateHandler($event)" (dateSelect)="selectFromDateHandler($event)" value='{{ searchData.from }}' placeholder="From" />
+				<div class="input-group-append">
+					<span class="btn btn-light" (click)="dfrom.toggle()"><i class="far fa-calendar"></i></span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<div class="input-group">
+			<input class="form-control" name="to" type="text" ngbDatepicker #dto="ngbDatepicker" (change)="selectToDateHandler($event)" (dateSelect)="selectToDateHandler($event)" value='{{ searchData.to }}' placeholder="To"/>
+				<div class="input-group-append">
+					<span class="btn btn-light" (click)="dto.toggle()"><i class="far fa-calendar"></i></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-right">
+		<a class="btn btn-primary text-white" (click)="setData()">Search</a>
+	</div>
+</div>

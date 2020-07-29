@@ -1,0 +1,13 @@
+footer{padding: 16px;background: #343a40;color:#fff;}
+.top-footer{background: #36bc9c;padding:10px;color:#fff;}
+.footer-menu a{padding:6px;color: #eee;}
+.bottom{background: #555;overflow: hidden;}
+.bottom-btn{
+	padding: 10px 40px;
+    border-bottom: 2px solid #fff;
+    background: #36bc9c;
+    transform: skew(-30deg);
+    display: block;
+    margin-right: -20px;
+}
+.text-btn{transform: skew(30deg);display: inline-block;}
